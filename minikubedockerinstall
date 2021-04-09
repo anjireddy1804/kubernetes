@@ -1,0 +1,28 @@
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+Step 2. change permission of the binaries, and move to user folder.
+
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+Step 3. Install docker, there are many ways to do it. We will use shell script for this.
+
+sudo yum update -y
+sudo amazon-linux-extras install docker
+sudo yum install docker
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+logoit and login
+docker info
+
+$ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+$ chmod +x minikube
+$ sudo mv minikube /usr/local/bin/
+Step 5. Become root, for missions.
+
+sudo su
+Step 6. Start minikube, with no vm args
+
+minikube start --vm-driver=none
+Steps 7. Check status.
+
+minikube status
+Thats all folks !
